@@ -1,14 +1,9 @@
-import styled, { css } from 'styled-components/macro'
+import { Sidebar } from 'sidebar/sidebar'
 
 function App () {
   return (
-    <Title>App</Title>
+    <Sidebar />
   )
 }
-
-const Title = styled.h1`${({ theme }) => css`
-  background: ${theme.colors.black};
-  color: ${theme.colors.primary};
-`}`
 
 export { App }
