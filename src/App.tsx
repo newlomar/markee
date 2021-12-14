@@ -1,4 +1,4 @@
-import { Sidebar } from 'sidebar/sidebar'
+import { Sidebar } from 'sidebar'
 
 function App () {
   return (
