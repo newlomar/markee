@@ -57,7 +57,6 @@ const Title2 = styled.h2`
   font-size: 1.5rem;
 `
 const Line = styled.span`${({ theme }) => css`
-  height: 1px;
   border: 1px solid ${theme.colors.primary};
 `}`
 
