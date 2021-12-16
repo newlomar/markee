@@ -1,4 +1,4 @@
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { ThemeProvider, createGlobalStyle, css } from 'styled-components'
 import { App } from './app'
 import { theme } from 'resources/theme'
 
@@ -13,7 +13,7 @@ function Root () {
   )
 }
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`${({ theme }) => css`
   * {
     box-sizing: border-box;
   }
@@ -24,7 +24,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'DM Sans', sans-serif;
+    color: ${theme.colors.black}
   }
-`
+`}`
 
 export { Root }

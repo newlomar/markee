@@ -8,13 +8,31 @@ function Sidebar () {
         <Title>markee<Span>.</Span></Title>
       </Header>
       <Section>
-        <Title2><Line />Arquivos <Line /></Title2>
-        <Button>+ Adicionar arquivo</Button>
+        <ArchiveSpan>
+          <LineOne />
+          <Title2>
+            Arquivos
+          </Title2>
+          <LineTwo />
+        </ArchiveSpan>
+        <Button>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
         <List>
-          <li>Exemplo1</li>
-          <li>Exemplo1</li>
-          <li>Exemplo1</li>
-          <li>Exemplo1</li>
+          <li>
+            <img src='a.png' alt='archive icon' />
+            Exemplo1
+          </li>
+          <li>
+            <img src='archive.png' alt='archive icon' />
+            Exemplo1
+          </li>
+          <li>
+            <img src='archive.png' alt='archive icon' />
+            Exemplo1
+          </li>
+          <li>
+            <img src='archive.png' alt='archive icon' />
+            Exemplo1
+          </li>
         </List>
       </Section>
     </Aside>
@@ -25,7 +43,7 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 3rem;
+  padding: 4rem 3rem 3rem 3rem;
 `
 
 const Aside = styled.aside`${({ theme }) => css`
@@ -50,22 +68,50 @@ const Image = styled.img`
 `
 
 const Section = styled.section`
-  padding: 3rem 3rem;
+  padding: 2rem 3rem;
 `
 
-const Title2 = styled.h2`
-  font-size: 1.5rem;
+const ArchiveSpan = styled.span`
+  display: flex;
+  align-items: center;
 `
-const Line = styled.span`${({ theme }) => css`
-  border: 1px solid ${theme.colors.primary};
+
+const Title2 = styled.h2`${({ theme }) => css`
+  font-size: 1.5rem;
+  color: ${theme.colors.white};
+  padding: 0rem 0.5rem;
 `}`
 
-const Button = styled.button`
+const LineOne = styled.span`${({ theme }) => css`
+  flex-basis: 10%;
+  background: ${theme.colors.primary};
+  border: 1px solid ${theme.colors.primary};
+  border-radius: 1px;
+`}`
+
+const LineTwo = styled(LineOne)`
+  flex-basis: 90%;
+`
+
+const Button = styled.button`${({ theme }) => css`
+  width: 100%;
   font-size: 2rem;
+  margin: 1rem 0rem;
+  padding: 0.5rem 0rem;
+  background: ${theme.colors.primary};
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  color: ${theme.colors.black}
+`}`
+
+const ButtonSpan = styled.span`
+  font-size: 1.4rem;
 `
 
 const List = styled.ul`
   list-style-type: none;
+  color: white;
 `
 
 export { Sidebar }
