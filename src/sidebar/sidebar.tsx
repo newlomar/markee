@@ -17,22 +17,34 @@ function Sidebar () {
         </ArchiveSpan>
         <Button>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
         <List>
-          <li>
-            <img src='a.png' alt='archive icon' />
-            Exemplo1
-          </li>
-          <li>
-            <img src='archive.png' alt='archive icon' />
-            Exemplo1
-          </li>
-          <li>
-            <img src='archive.png' alt='archive icon' />
-            Exemplo1
-          </li>
-          <li>
-            <img src='archive.png' alt='archive icon' />
-            Exemplo1
-          </li>
+          <ListItem>
+            <a href='/'>
+              <ListImage src='logo192.png' alt='archive icon' />
+              Exemplo1
+            </a>
+            <button>x</button>
+          </ListItem>
+          <ListItem>
+            <a href='/'>
+              <ListImage src='logo192.png' alt='archive icon' />
+              Exemplo1
+              <button>x</button>
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href='/'>
+              <ListImage src='logo192.png' alt='archive icon' />
+              Exemplo1
+              <button>x</button>
+            </a>
+          </ListItem>
+          <ListItem>
+            <a href='/'>
+              <ListImage src='logo192.png' alt='archive icon' />
+              Exemplo1
+              <button>x</button>
+            </a>
+          </ListItem>
         </List>
       </Section>
     </Aside>
@@ -102,7 +114,12 @@ const Button = styled.button`${({ theme }) => css`
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  color: ${theme.colors.black}
+  color: ${theme.colors.black};
+
+  &:hover {
+    opacity: 0.75;
+  }
+
 `}`
 
 const ButtonSpan = styled.span`
@@ -112,6 +129,15 @@ const ButtonSpan = styled.span`
 const List = styled.ul`
   list-style-type: none;
   color: white;
+  padding: 1rem;
+`
+
+const ListItem = styled.li`
+  display: flex;
+`
+
+const ListImage = styled.img`
+  width: 1.5rem;
 `
 
 export { Sidebar }
