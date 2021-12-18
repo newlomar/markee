@@ -167,9 +167,12 @@ const ListItem = styled.li`${({ theme }) => css`
   padding: 0.5rem 1rem;
   margin: 1rem 0rem;
   border-radius: 6px;
+  opacity: 0.65;
 
   &:hover {
-    background-color: ${theme.colors.lightBlack}
+    background-color: ${theme.colors.lightBlack};
+    color: white;
+    opacity: 1;
   }
 
 `}`
@@ -179,7 +182,7 @@ const Link = styled.a`${({ theme }) => css`
   align-items: center;
   font-size: 1.5rem;
   color: ${theme.colors.white};
-  opacity: 0.65;
+
   text-decoration: none;
   width: 100%;
 `}`
@@ -192,9 +195,9 @@ const DeleteButton = styled.button`${({ theme }) => css`
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: ${theme.colors.white};
-  opacity: 0.65;
+  padding: 0rem 1rem;
 
   &:hover {
     opacity: 1;
