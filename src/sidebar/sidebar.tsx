@@ -28,7 +28,7 @@ function Sidebar () {
               </svg>
               <LinkText>Exemplo 1</LinkText>
             </Link>
-            <button>x</button>
+            <DeleteButton>x</DeleteButton>
           </ListItem>
           <ListItem>
             <Link href='/'>
@@ -41,7 +41,7 @@ function Sidebar () {
               </svg>
               <LinkText>Exemplo 1</LinkText>
             </Link>
-            <button>x</button>
+            <DeleteButton>x</DeleteButton>
           </ListItem>
           <ListItem>
             <Link href='/'>
@@ -59,7 +59,7 @@ function Sidebar () {
               </svg>
               <LinkText>Exemplo 1</LinkText>
             </Link>
-            <button>x</button>
+            <DeleteButton>x</DeleteButton>
           </ListItem>
           <ListItem>
             <Link href='/'>
@@ -72,7 +72,7 @@ function Sidebar () {
               </svg>
               <LinkText>Exemplo 1</LinkText>
             </Link>
-            <button>x</button>
+            <DeleteButton>x</DeleteButton>
           </ListItem>
         </List>
       </Section>
@@ -158,14 +158,15 @@ const ButtonSpan = styled.span`
 const List = styled.ul`
   list-style-type: none;
   color: white;
-  padding: 1rem;
+  padding-left: 0rem;
 `
 
 const ListItem = styled.li`${({ theme }) => css`
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  margin: 0.5rem 0rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0rem;
+  border-radius: 6px;
 
   &:hover {
     background-color: ${theme.colors.lightBlack}
@@ -184,7 +185,22 @@ const Link = styled.a`${({ theme }) => css`
 `}`
 
 const LinkText = styled.span`
-  margin-left: 2rem;
+  margin-left: 1rem;
 `
+
+const DeleteButton = styled.button`${({ theme }) => css`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: ${theme.colors.white};
+  opacity: 0.65;
+
+  &:hover {
+    opacity: 1;
+    background-color: ${theme.colors.black};
+    border-radius: 100px;
+  };
+`}`
 
 export { Sidebar }
