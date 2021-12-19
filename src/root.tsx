@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`${({ theme }) => css`
     font-family: 'DM Sans', sans-serif;
     color: ${theme.colors.black}
   }
+
+  #app {
+    display: flex;
+  }
 `}`
 
 export { Root }

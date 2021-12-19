@@ -1,8 +1,12 @@
 import { Sidebar } from 'sidebar'
+import { Content } from 'content'
 
 function App () {
   return (
-    <Sidebar />
+    <>
+      <Sidebar />
+      <Content />
+    </>
   )
 }
 

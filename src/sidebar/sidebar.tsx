@@ -100,7 +100,6 @@ function Sidebar () {
           </List>
         </Section>
       </Aside>
-      <Content />
     </>
   )
 }
@@ -220,7 +219,7 @@ const DeleteButton = styled.button`${({ theme }) => css`
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: ${theme.colors.white};
   padding: 0rem 1rem;
 
@@ -230,9 +229,5 @@ const DeleteButton = styled.button`${({ theme }) => css`
     border-radius: 100px;
   };
 `}`
-
-const Content = styled.main`
-  background: red;
-`
 
 export { Sidebar }
