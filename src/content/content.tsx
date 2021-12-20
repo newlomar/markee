@@ -15,7 +15,7 @@ function Content () {
       </StyledDiv>
       <Main>
         <TextSection>
-          ## Bootcamp Brainn Co.
+          ## Bootcamp Brainn Co
 
           Lorem ipsum dolor sit amet simet
         </TextSection>
