@@ -15,10 +15,12 @@ function Content () {
       </StyledDiv>
       <Main>
         <TextSection>
-          a
+          ## Bootcamp Brainn Co.
+
+          Lorem ipsum dolor sit amet simet
         </TextSection>
         <ResultSection>
-          <h2>Bootcamp Brainn Co.</h2>
+          <StyledHeader>Bootcamp Brainn Co.</StyledHeader>
           <p>Lorem ipsum dolor sit amet simet</p>
         </ResultSection>
       </Main>
@@ -26,9 +28,11 @@ function Content () {
   )
 }
 
-const StyledSection = styled.section`
+const StyledSection = styled.section`${({ theme }) => css`
   flex-grow: 1;
-`
+  padding: 2rem;
+  color: ${theme.colors.black}
+`}`
 
 const StyledDiv = styled.div`
   display: flex;
@@ -40,22 +44,41 @@ const Input = styled.input`
   display: inline-block;
   border: none;
   width: 100%;
+  font-size: 1.8rem;
+  padding-left: 1rem;
+
   &:focus {
     outline: none;
-    box-shadow: 0px 0px 0px red;
   }
 `
 
 const Main = styled.main`
+  padding-top: 4rem;
   display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
 `
 
 const TextSection = styled.textarea`
   display: flex;
   flex-direction: column;
+  width: 45%;
+  border: none;
+  overflow: hidden;
+  height: 100%;
+  padding: 0;
+  &:focus {
+    outline: none;
+  }
 `
-const ResultSection = styled.section`
 
+const ResultSection = styled.section`
+  width: 45%
+`
+
+const StyledHeader = styled.h2`
+  margin: 0;
 `
 
 export { Content }
