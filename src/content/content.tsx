@@ -64,12 +64,12 @@ const Main = styled.main`
   overflow: hidden;
 `
 
-const TextSection = styled.textarea`
+const TextSection = styled.textarea`${({ theme }) => css`
   display: flex;
   flex-direction: column;
   font-size: 1.8rem;
   border: none;
-  border-right: 2px solid black;
+  border-right: 2px solid ${theme.colors.gray};
   padding: 2rem;
   width: 50%;
   overflow: auto;
@@ -82,24 +82,24 @@ const TextSection = styled.textarea`
   }
 
   &::-webkit-scrollbar {
-    width: 1em;
+    width: 0rem;
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
+  // &::-webkit-scrollbar-track {
+  //   background-color: transparent;
+  // }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #d6dee1;
-    border-radius: 20px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-  }
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: #d6dee1;
+  //   border-radius: 20px;
+  //   border: 6px solid transparent;
+  //   background-clip: content-box;
+  // }
 
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: #a8bbbf;
-  }
-`
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background-color: #a8bbbf;
+  // }
+`}`
 
 const ResultSection = styled.section`
   padding: 2rem;
