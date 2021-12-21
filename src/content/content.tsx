@@ -57,10 +57,10 @@ const Input = styled.input`
 `
 
 const Main = styled.main`
-  padding-top: 4rem;
   display: flex;
   width: 100%;
   height: 99%;
+  padding: 4rem 0;
   overflow: hidden;
 `
 
@@ -70,7 +70,7 @@ const TextSection = styled.textarea`${({ theme }) => css`
   font-size: 1.8rem;
   border: none;
   border-right: 2px solid ${theme.colors.gray};
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   width: 50%;
   overflow: auto;
   overflow-x: hidden;
@@ -102,7 +102,7 @@ const TextSection = styled.textarea`${({ theme }) => css`
 `}`
 
 const ResultSection = styled.section`
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   width: 50%;
 `
 
