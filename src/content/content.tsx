@@ -70,8 +70,8 @@ const TextSection = styled.textarea`
   font-size: 1.8rem;
   border: none;
   border-right: 2px solid black;
-  padding: 0;
-  width: 45%;
+  padding: 2rem;
+  width: 50%;
   overflow: auto;
   overflow-x: hidden;
   resize: none;
@@ -102,7 +102,8 @@ const TextSection = styled.textarea`
 `
 
 const ResultSection = styled.section`
-  width: 45%
+  padding: 2rem;
+  width: 50%;
 `
 
 const StyledHeader = styled.h2`
