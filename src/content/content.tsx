@@ -67,15 +67,36 @@ const Main = styled.main`
 const TextSection = styled.textarea`
   display: flex;
   flex-direction: column;
-  width: 45%;
-  border: none;
-  overflow: scroll;
-  padding: 0;
   font-size: 1.8rem;
+  border: none;
+  padding: 0;
+  width: 45%;
+  overflow: scroll;
+  overflow-x: hidden;
   resize: none;
+  cursor: auto;
 
   &:focus {
     outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
   }
 `
 
