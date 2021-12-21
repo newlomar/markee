@@ -25,7 +25,7 @@ function Content () {
         <TextSection value={areaText} onChange={handleChange} />
         <ResultSection>
           <StyledHeader>Bootcamp Brainn Co.</StyledHeader>
-          <p>Lorem ipsum dolor sit amet simet</p>
+          <P>Lorem ipsum dolor sit amet simet</P>
         </ResultSection>
       </Main>
     </StyledSection>
@@ -60,8 +60,8 @@ const Main = styled.main`
   padding-top: 4rem;
   display: flex;
   width: 100%;
-  height: 100%;
-  overflow-y: hidden;
+  height: 99%;
+  overflow: hidden;
 `
 
 const TextSection = styled.textarea`
@@ -69,10 +69,10 @@ const TextSection = styled.textarea`
   flex-direction: column;
   width: 45%;
   border: none;
-  overflow: hidden;
-  height: 100%;
+  overflow: scroll;
   padding: 0;
   font-size: 1.8rem;
+  resize: none;
 
   &:focus {
     outline: none;
@@ -84,6 +84,10 @@ const ResultSection = styled.section`
 `
 
 const StyledHeader = styled.h2`
+  margin: 0;
+`
+
+const P = styled.p`
   margin: 0;
 `
 
