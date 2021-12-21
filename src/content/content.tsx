@@ -1,6 +1,14 @@
+import { ChangeEvent, useState } from 'react'
 import styled, { css } from 'styled-components/macro'
 
 function Content () {
+  const [areaText, setAreaText] = useState('## Bootcamp Brainn Co\nLorem ipsum dolor sit amet simet')
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const target = event.target as HTMLTextAreaElement
+    setAreaText(target.value)
+  }
+
   return (
     <StyledSection>
       <StyledDiv>
@@ -14,11 +22,7 @@ function Content () {
         <Input type='text' />
       </StyledDiv>
       <Main>
-        <TextSection>
-          ## Bootcamp Brainn Co
-
-          Lorem ipsum dolor sit amet simet
-        </TextSection>
+        <TextSection value={areaText} onChange={handleChange} />
         <ResultSection>
           <StyledHeader>Bootcamp Brainn Co.</StyledHeader>
           <p>Lorem ipsum dolor sit amet simet</p>
@@ -68,6 +72,8 @@ const TextSection = styled.textarea`
   overflow: hidden;
   height: 100%;
   padding: 0;
+  font-size: 1.8rem;
+
   &:focus {
     outline: none;
   }
