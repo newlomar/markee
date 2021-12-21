@@ -69,9 +69,10 @@ const TextSection = styled.textarea`
   flex-direction: column;
   font-size: 1.8rem;
   border: none;
+  border-right: 2px solid black;
   padding: 0;
   width: 45%;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
   resize: none;
   cursor: auto;
