@@ -1,15 +1,8 @@
 import styled, { css } from 'styled-components/macro'
+import { File } from 'resources/files/types'
 
 function Sidebar () {
-  interface Item {
-    id: string
-    name: string
-    content: string
-    active: boolean
-    status: 'editing' | 'saving' | 'saved'
-  }
-
-  const array: Item[] = [
+  const array: File[] = [
     {
       id: '1',
       name: 'Markdown',
