@@ -19,7 +19,7 @@ function Sidebar () {
     },
     {
       id: '2',
-      name: 'Markdown 2',
+      name: 'Markdown - 2',
       content: 'sdadsadsa',
       active: false,
       status: 'saved',
