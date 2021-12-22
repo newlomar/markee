@@ -12,7 +12,7 @@ function Sidebar () {
   const array: Item[] = [
     {
       id: '1',
-      name: 'Markdown 1',
+      name: 'Markdown',
       content: 'sdadsadsa',
       active: true,
       status: 'editing',
