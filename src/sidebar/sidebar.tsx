@@ -13,10 +13,17 @@ function Sidebar () {
     },
     {
       id: '2',
-      name: 'Markdown - 2',
+      name: 'Markdown 2',
       content: 'sdadsadsa',
       active: false,
       status: 'saved',
+    },
+    {
+      id: '3',
+      name: 'Markdown 3',
+      content: 'sdadsadsa',
+      active: false,
+      status: 'saving',
     },
   ]
 
@@ -47,7 +54,7 @@ function Sidebar () {
 
                     </Link>
                     <DeleteButton>
-                      {/* <ButtonImage /> */}
+                      <ButtonImage status={item.status} />
                     </DeleteButton>
                   </ListItem>
                 )
@@ -191,6 +198,14 @@ const DeleteButton = styled.button`${({ theme }) => css`
     background-color: ${theme.colors.black};
     border-radius: 100px;
   };
+`}`
+
+type DeleteButtonProps = {
+  status: string
+}
+
+const ButtonImage = styled.img<DeleteButtonProps>`${({ status }) => css`
+  content:url("${status === 'editing' ? icon.deletebutton : 'c'}")
 `}`
 
 export { Sidebar }
