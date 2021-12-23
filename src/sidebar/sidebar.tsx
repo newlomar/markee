@@ -46,7 +46,7 @@ function Sidebar () {
                       <LinkText>{item.name}</LinkText>
 
                     </Link>
-                    <DeleteButton>mudarporicon</DeleteButton>
+                    <DeleteButton>'ok'</DeleteButton>
                   </ListItem>
                 )
               })
@@ -158,7 +158,7 @@ const ListItem = styled.li`${({ theme }) => css`
 type LinkProps = {
   active: boolean
 }
-// background: url("${active ? icon.editingFile : icon.FileActive}") 10px calc(50% - 2px) no-repeat;
+
 const Link = styled.a<LinkProps>`${({ theme }) => css`
   display: flex;
   align-items: center;
