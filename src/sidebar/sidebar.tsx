@@ -46,7 +46,7 @@ function Sidebar () {
                       <LinkText>{item.name}</LinkText>
 
                     </Link>
-                    <DeleteButton>x</DeleteButton>
+                    <DeleteButton>mudarporicon</DeleteButton>
                   </ListItem>
                 )
               })
