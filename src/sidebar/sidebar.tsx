@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components/macro'
-// import * as icon from 'ui/icons'
+import * as icon from 'ui/icons'
 import { File } from 'resources/files/types'
 
 function Sidebar () {
@@ -41,12 +41,14 @@ function Sidebar () {
               array.map((item) => {
                 return (
                   <ListItem key={item.id}>
-                    <Link href='/' active={item.active}>
-
+                    <Link href='/'>
+                      <LinkImage active={item.active} />
                       <LinkText>{item.name}</LinkText>
 
                     </Link>
-                    <DeleteButton>'ok'</DeleteButton>
+                    <DeleteButton>
+                      {/* <ButtonImage /> */}
+                    </DeleteButton>
                   </ListItem>
                 )
               })
@@ -155,17 +157,21 @@ const ListItem = styled.li`${({ theme }) => css`
 
 `}`
 
-type LinkProps = {
-  active: boolean
-}
-
-const Link = styled.a<LinkProps>`${({ theme }) => css`
+const Link = styled.a`${({ theme }) => css`
   display: flex;
   align-items: center;
   font-size: 1.5rem;
   color: ${theme.colors.white};
   text-decoration: none;
   width: 100%;
+`}`
+
+type LinkImageProps = {
+  active: boolean
+}
+
+const LinkImage = styled.img<LinkImageProps>`${({ active }) => css`
+  content:url("${active ? icon.activeFile : icon.savedFile}")
 `}`
 
 const LinkText = styled.span`
