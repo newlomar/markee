@@ -205,7 +205,7 @@ type DeleteButtonProps = {
 }
 
 const ButtonImage = styled.img<DeleteButtonProps>`${({ status }) => css`
-  content:url("${status === 'editing' ? icon.deletebutton : 'c'}")
+  content:url("${status === 'editing' ? icon.deletebutton : status === 'saving' ? icon.ellipse2 : icon.ellipse1}")
 `}`
 
 export { Sidebar }
