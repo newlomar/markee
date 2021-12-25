@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/macro'
+import styled, { css, keyframes } from 'styled-components/macro'
 import * as icon from 'ui/icons'
 import { File } from 'resources/files/types'
 
@@ -204,8 +204,23 @@ type DeleteButtonProps = {
   status: string
 }
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+const animation = () => css`
+  ${rotate} 2s linear infinite;
+`
+
 const ButtonImage = styled.img<DeleteButtonProps>`${({ status }) => css`
-  content:url("${status === 'editing' ? icon.deletebutton : status === 'saving' ? icon.ellipse2 : icon.ellipse1}")
+  content:url("${status === 'editing' ? icon.ellipse1 : status === 'saving' ? icon.ellipse2 : icon.savedIcon}");
+  animation: ${status === 'saving' && animation};
 `}`
 
 export { Sidebar }
