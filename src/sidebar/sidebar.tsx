@@ -215,7 +215,7 @@ const rotate = keyframes`
 `
 
 const animation = () => css`
-  ${rotate} 2s linear infinite;
+  ${rotate} 0.5s linear infinite;
 `
 
 const ButtonImage = styled.img<DeleteButtonProps>`${({ status }) => css`
