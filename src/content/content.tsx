@@ -1,6 +1,23 @@
 import { ChangeEvent, useState } from 'react'
 import { activeFile } from 'ui/icons'
 import styled, { css } from 'styled-components/macro'
+import { marked } from 'marked'
+// import highlight from 'highlight.js'
+import 'highlight.js/styles/github.css'
+
+import('highlight.js').then((hljs) => {
+  const h = hljs.default
+
+  marked.setOptions({
+    highlight: (code, language) => {
+      if (language && h.getLanguage(language)) {
+        return h.highlight(code, { language }).value
+      }
+
+      return h.highlightAuto(code).value
+    },
+  })
+})
 
 function Content () {
   const [content, setContent] = useState('')
@@ -21,9 +38,7 @@ function Content () {
           value={content}
           onChange={handleChange}
         />
-        <ResultSection>
-          {content}
-        </ResultSection>
+        <ResultSection dangerouslySetInnerHTML={{ __html: marked(content) }} />
       </Main>
     </StyledSection>
   )
