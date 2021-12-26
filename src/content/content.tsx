@@ -121,10 +121,10 @@ const ResultSection = styled.section`
   padding: 0 2rem 2rem 2rem;
   width: 50%;
   font-size: 1.4rem;
+  overflow: hidden;
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
-
 `
 export { Content }

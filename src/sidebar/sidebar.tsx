@@ -38,7 +38,7 @@ function Sidebar () {
             </Title2>
             <LineTwo />
           </ArchiveSpan>
-          <Button>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
+          <Button onClick={handleClick}>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
           <List>
             {
               files.map((item) => {
@@ -50,7 +50,7 @@ function Sidebar () {
 
                     </Link>
                     <DeleteButton>
-                      <ButtonImage status={item.status} onClick={handleClick} />
+                      <ButtonImage status={item.status} />
                     </DeleteButton>
                   </ListItem>
                 )
@@ -73,7 +73,32 @@ const Header = styled.header`
 const Aside = styled.aside`${({ theme }) => css`
   height: 100vh;
   width: 30rem;
-  background: ${theme.colors.black}
+  background: ${theme.colors.black};
+  overflow: scroll;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+
 `}`
 
 const Title = styled.h1`${({ theme }) => css`
