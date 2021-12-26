@@ -1,31 +1,27 @@
+import { useState } from 'react'
 import styled, { css, keyframes } from 'styled-components/macro'
 import * as icon from 'ui/icons'
 import { File } from 'resources/files/types'
+import { v4 } from 'uuid'
 
 function Sidebar () {
-  const array: File[] = [
-    {
-      id: '1',
-      name: 'Markdown',
-      content: 'sdadsadsa',
+  const [files, setFiles] = useState<File[]>([])
+
+  const handleClick = () => {
+    const obj:File = {
+      id: v4(),
+      name: 'Sem título',
+      content: '',
       active: true,
-      status: 'editing',
-    },
-    {
-      id: '2',
-      name: 'Markdown 2',
-      content: 'sdadsadsa',
-      active: false,
       status: 'saved',
-    },
-    {
-      id: '3',
-      name: 'Markdown 3',
-      content: 'sdadsadsa',
-      active: false,
-      status: 'saving',
-    },
-  ]
+    }
+    setFiles(
+      [
+        ...files,
+        obj,
+      ],
+    )
+  }
 
   return (
     <>
@@ -45,7 +41,7 @@ function Sidebar () {
           <Button>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
           <List>
             {
-              array.map((item) => {
+              files.map((item) => {
                 return (
                   <ListItem key={item.id}>
                     <Link href='/'>
@@ -54,7 +50,7 @@ function Sidebar () {
 
                     </Link>
                     <DeleteButton>
-                      <ButtonImage status={item.status} />
+                      <ButtonImage status={item.status} onClick={handleClick} />
                     </DeleteButton>
                   </ListItem>
                 )
