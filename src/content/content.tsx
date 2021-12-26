@@ -3,24 +3,26 @@ import { activeFile } from 'ui/icons'
 import styled, { css } from 'styled-components/macro'
 
 function Content () {
-  const [areaText, setAreaText] = useState('## Bootcamp Brainn Co\nLorem ipsum dolor sit amet simet')
+  const [content, setContent] = useState('')
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const target = event.target as HTMLTextAreaElement
-    setAreaText(target.value)
+    setContent(event.target.value)
   }
 
   return (
     <StyledSection>
       <StyledHeader>
         <LinkImage />
-        <Input type='text' />
+        <Input defaultValue='Sem título' />
       </StyledHeader>
       <Main>
-        <TextSection value={areaText} onChange={handleChange} />
+        <TextSection
+          placeholder='Digite aqui seu markdown'
+          value={content}
+          onChange={handleChange}
+        />
         <ResultSection>
-          <StyledHeading>Bootcamp Brainn Co.</StyledHeading>
-          <P>Lorem ipsum dolor sit amet simet</P>
+          {content}
         </ResultSection>
       </Main>
     </StyledSection>
@@ -66,7 +68,7 @@ const Main = styled.main`
 const TextSection = styled.textarea`${({ theme }) => css`
   display: flex;
   flex-direction: column;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   border: none;
   border-right: 2px solid ${theme.colors.gray};
   padding: 0 2rem 2rem 2rem;
@@ -103,14 +105,11 @@ const TextSection = styled.textarea`${({ theme }) => css`
 const ResultSection = styled.section`
   padding: 0 2rem 2rem 2rem;
   width: 50%;
-`
+  font-size: 1.4rem;
 
-const StyledHeading = styled.h2`
-  margin: 0;
-`
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
 
-const P = styled.p`
-  margin: 0;
 `
-
 export { Content }
