@@ -79,7 +79,7 @@ const Header = styled.header`
 
 const Aside = styled.aside`${({ theme }) => css`
   height: 100vh;
-  width: 30rem;
+  width: 35rem;
   background: ${theme.colors.black};
   overflow: scroll;
 

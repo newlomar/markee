@@ -46,6 +46,7 @@ function Content () {
 
 const StyledSection = styled.section`${({ theme }) => css`
   flex-grow: 1;
+  width: 100%;
   padding: 2rem;
   color: ${theme.colors.black}
 `}`
@@ -77,7 +78,7 @@ const Main = styled.main`
   width: 100%;
   height: 90vh;
   padding: 4rem 0;
-  overflow: hidden;
+  overflow-y: hidden;
 `
 
 const TextSection = styled.textarea`${({ theme }) => css`
@@ -88,12 +89,13 @@ const TextSection = styled.textarea`${({ theme }) => css`
   border-right: 2px solid ${theme.colors.gray};
   padding: 0 2rem 2rem 2rem;
   height: 100%;
-  width: 50%;
-  overflow: scroll;
-  overflow-x: hidden;
+  min-width: 50%;
+  max-width: 50%;
+  overflow: auto;
+  overflow-y: scroll;
   resize: none;
   cursor: auto;
-
+  word-break: break-all;
   &:focus {
     outline: none;
   }
@@ -112,7 +114,7 @@ const ResultSection = styled.section`
   overflow-x: hidden;
   resize: none;
   cursor: auto;
-
+  word-break: break-all;
   &:focus {
     outline: none;
   }
@@ -121,7 +123,7 @@ const ResultSection = styled.section`
     width: 0rem;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, p {
     margin-top: 0;
   }
 `
