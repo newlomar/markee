@@ -20,23 +20,28 @@ import('highlight.js').then((hljs) => {
 })
 
 function Content () {
+  const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
-  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(event.target.value)
+  const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(e.target.value)
+  }
+
+  const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value)
   }
 
   return (
     <StyledSection>
       <StyledHeader>
         <LinkImage />
-        <Input defaultValue='Sem título' />
+        <Input value={title} onChange={handleTitleChange} />
       </StyledHeader>
       <Main>
         <TextSection
           placeholder='Digite aqui seu markdown'
           value={content}
-          onChange={handleChange}
+          onChange={handleContentChange}
         />
         <ResultSection dangerouslySetInnerHTML={{ __html: marked(content) }} />
       </Main>
