@@ -56,10 +56,9 @@ function Sidebar () {
                       <LinkImage active={item.active} />
                       <LinkText>{item.name}</LinkText>
                     </Link>
-
-                    <DeleteButton>
-                      <ButtonImage status={item.status} />
-                    </DeleteButton>
+                    <StatusButton>
+                      <ButtonImage active={item.active} status={item.status} />
+                    </StatusButton>
                   </ListItem>
                 )
               })
@@ -214,7 +213,7 @@ const LinkText = styled.span`
   margin-left: 1rem;
 `
 
-const DeleteButton = styled.button`${({ theme }) => css`
+const StatusButton = styled.button`${({ theme }) => css`
   background: none;
   border: none;
   cursor: pointer;
@@ -228,10 +227,6 @@ const DeleteButton = styled.button`${({ theme }) => css`
     border-radius: 100px;
   };
 `}`
-
-type DeleteButtonProps = {
-  status: string
-}
 
 const rotate = keyframes`
   from {
@@ -247,8 +242,13 @@ const animation = () => css`
   ${rotate} 0.5s linear infinite;
 `
 
-const ButtonImage = styled.img<DeleteButtonProps>`${({ status }) => css`
-  content:url("${status === 'editing' ? icon.ellipse1 : status === 'saving' ? icon.ellipse2 : icon.savedIcon}");
+type StatusButtonProps = {
+  active: boolean
+  status: string
+}
+
+const ButtonImage = styled.img<StatusButtonProps>`${({ active, status }) => css`
+  content:url("${active === false ? icon.deletebutton : status === 'editing' ? icon.ellipse1 : status === 'saving' ? icon.ellipse2 : icon.savedIcon}");
   animation: ${status === 'saving' && animation};
 `}`
 
