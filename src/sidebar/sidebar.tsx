@@ -15,9 +15,17 @@ function Sidebar () {
       active: true,
       status: 'saved',
     }
+    const oldFiles:File[] = files.map((item) => {
+      return (
+        {
+          ...item,
+          active: false,
+        }
+      )
+    })
     setFiles(
       [
-        ...files,
+        ...oldFiles,
         obj,
       ],
     )
@@ -47,8 +55,8 @@ function Sidebar () {
                     <Link href='/'>
                       <LinkImage active={item.active} />
                       <LinkText>{item.name}</LinkText>
-
                     </Link>
+
                     <DeleteButton>
                       <ButtonImage status={item.status} />
                     </DeleteButton>
