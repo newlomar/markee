@@ -17,6 +17,11 @@ function App () {
     setTitle(e.target.value)
   }
 
+  const handleFileChange = (item: File) => {
+    setTitle(item.name)
+    setContent(item.content)
+  }
+
   const handleClick = () => {
     const obj:File = {
       id: v4(),
@@ -42,7 +47,11 @@ function App () {
   }
   return (
     <>
-      <Sidebar handleClick={handleClick} files={files} />
+      <Sidebar
+        handleClick={handleClick}
+        files={files}
+        handleFileChange={handleFileChange}
+      />
       <Content
         title={title}
         content={content}

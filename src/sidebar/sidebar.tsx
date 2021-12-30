@@ -5,10 +5,11 @@ import { MouseEventHandler } from 'react'
 
 interface Props {
   handleClick: MouseEventHandler;
-  files: File[]
+  files: File[];
+  handleFileChange: Function;
 }
 
-function Sidebar ({ handleClick, files }: Props) {
+function Sidebar ({ handleClick, files, handleFileChange }: Props) {
   return (
     <>
       <Aside>
@@ -30,7 +31,7 @@ function Sidebar ({ handleClick, files }: Props) {
               files.map((item) => {
                 return (
                   <ListItem key={item.id}>
-                    <Link href='/'>
+                    <Link href='#' onClick={() => handleFileChange(item)}>
                       <LinkImage active={item.active} />
                       <LinkText>{item.name}</LinkText>
                     </Link>
