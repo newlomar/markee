@@ -15,11 +15,17 @@ function App () {
 
   const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value)
+    const id = (files.find(item => item.active))?.id
+    console.log(id)
   }
 
   const handleFileChange = (item: File) => {
     setTitle(item.name)
     setContent(item.content)
+    console.log(item.id)
+    const idItemClicked = item.id
+    const idActive = (files.find(item => item.active))?.id
+    setFiles(files.map((item) => item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
   }
 
   const handleClick = () => {
