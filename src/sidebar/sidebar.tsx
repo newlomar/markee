@@ -1,36 +1,14 @@
-import { useState } from 'react'
 import styled, { css, keyframes } from 'styled-components/macro'
 import * as icon from 'ui/icons'
 import { File } from 'resources/files/types'
-import { v4 } from 'uuid'
+import { MouseEventHandler } from 'react'
 
-function Sidebar () {
-  const [files, setFiles] = useState<File[]>([])
+interface Props {
+  handleClick: MouseEventHandler;
+  files: File[]
+}
 
-  const handleClick = () => {
-    const obj:File = {
-      id: v4(),
-      name: 'Sem título',
-      content: '',
-      active: true,
-      status: 'saved',
-    }
-    const oldFiles:File[] = files.map((item) => {
-      return (
-        {
-          ...item,
-          active: false,
-        }
-      )
-    })
-    setFiles(
-      [
-        ...oldFiles,
-        obj,
-      ],
-    )
-  }
-
+function Sidebar ({ handleClick, files }: Props) {
   return (
     <>
       <Aside>

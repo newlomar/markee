@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEventHandler } from 'react'
 import { activeFile } from 'ui/icons'
 import styled, { css } from 'styled-components/macro'
 import { marked } from 'marked'
@@ -19,18 +19,14 @@ import('highlight.js').then((hljs) => {
   })
 })
 
-function Content () {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+interface Props {
+  title: string;
+  handleTitleChange: ChangeEventHandler;
+  content: string;
+  handleContentChange: ChangeEventHandler;
+}
 
-  const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value)
-  }
-
-  const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value)
-  }
-
+function Content ({ title, handleTitleChange, content, handleContentChange }: Props) {
   return (
     <StyledSection>
       <StyledHeader>
