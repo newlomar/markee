@@ -16,6 +16,7 @@ function App () {
   ])
   const [title, setTitle] = useState('Sem título')
   const [content, setContent] = useState('')
+  console.log('infinite loop check')
 
   const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const newContent = e.target.value

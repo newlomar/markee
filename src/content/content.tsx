@@ -32,6 +32,7 @@ function Content ({ title, handleTitleChange, content, handleContentChange }: Pr
       <StyledHeader>
         <LinkImage />
         <Input
+          autoFocus
           value={title}
           onChange={handleTitleChange}
         />
