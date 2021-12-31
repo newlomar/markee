@@ -25,7 +25,7 @@ function App () {
     console.log(item.id)
     const idItemClicked = item.id
     const idActive = (files.find(item => item.active))?.id
-    setFiles(files.map((item) => item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
+    setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
   }
 
   const handleClick = () => {
