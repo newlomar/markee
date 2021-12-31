@@ -31,7 +31,10 @@ function Content ({ title, handleTitleChange, content, handleContentChange }: Pr
     <StyledSection>
       <StyledHeader>
         <LinkImage />
-        <Input value={title} onChange={handleTitleChange} />
+        <Input
+          value={title}
+          onChange={handleTitleChange}
+        />
       </StyledHeader>
       <Main>
         <TextSection

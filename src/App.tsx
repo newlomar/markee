@@ -5,30 +5,45 @@ import { File } from 'resources/files/types'
 import { v4 } from 'uuid'
 
 function App () {
-  const [files, setFiles] = useState<File[]>([])
-  const [title, setTitle] = useState('')
+  const [files, setFiles] = useState<File[]>([
+    {
+      id: v4(),
+      name: 'Sem título',
+      content: '',
+      active: true,
+      status: 'saved',
+    },
+  ])
+  const [title, setTitle] = useState('Sem título')
   const [content, setContent] = useState('')
 
   const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value)
+    const newContent = e.target.value
+    setContent(newContent)
+    const activeItemid = (files.find(item => item.active))?.id
+    setFiles(
+      files.map((file) => file.id === activeItemid ? { ...file, content: newContent } : file),
+    )
   }
 
   const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value)
-    const id = (files.find(item => item.active))?.id
-    console.log(id)
+    const newTitle = e.target.value
+    setTitle(newTitle)
+    const activeItemid = (files.find(item => item.active))?.id
+    setFiles(
+      files.map((file) => file.id === activeItemid ? { ...file, name: newTitle } : file),
+    )
   }
 
   const handleFileChange = (item: File) => {
     setTitle(item.name)
     setContent(item.content)
-    console.log(item.id)
     const idItemClicked = item.id
     const idActive = (files.find(item => item.active))?.id
     setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
   }
 
-  const handleClick = () => {
+  const handleAddNewFile = () => {
     const obj:File = {
       id: v4(),
       name: 'Sem título',
@@ -54,7 +69,7 @@ function App () {
   return (
     <>
       <Sidebar
-        handleClick={handleClick}
+        handleAddNewFile={handleAddNewFile}
         files={files}
         handleFileChange={handleFileChange}
       />

@@ -4,12 +4,12 @@ import { File } from 'resources/files/types'
 import { MouseEventHandler } from 'react'
 
 interface Props {
-  handleClick: MouseEventHandler;
+  handleAddNewFile: MouseEventHandler;
   files: File[];
   handleFileChange: Function;
 }
 
-function Sidebar ({ handleClick, files, handleFileChange }: Props) {
+function Sidebar ({ handleAddNewFile, files, handleFileChange }: Props) {
   return (
     <>
       <Aside>
@@ -25,7 +25,7 @@ function Sidebar ({ handleClick, files, handleFileChange }: Props) {
             </Title2>
             <LineTwo />
           </ArchiveSpan>
-          <Button onClick={handleClick}>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
+          <Button onClick={handleAddNewFile}>+ <ButtonSpan>Adicionar arquivo</ButtonSpan></Button>
           <List>
             {
               files.map((item) => {
