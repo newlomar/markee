@@ -16,25 +16,8 @@ function App () {
   ])
   const [title, setTitle] = useState('Sem título')
   const [content, setContent] = useState('')
+  const [editing, setEditing] = useState(false)
   console.log('infinite loop check')
-
-  const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    const newContent = e.target.value
-    setContent(newContent)
-    const activeItemid = (files.find(item => item.active))?.id
-    setFiles(
-      files.map((file) => file.id === activeItemid ? { ...file, content: newContent } : file),
-    )
-  }
-
-  const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    const newTitle = e.target.value
-    setTitle(newTitle)
-    const activeItemid = (files.find(item => item.active))?.id
-    setFiles(
-      files.map((file) => file.id === activeItemid ? { ...file, name: newTitle } : file),
-    )
-  }
 
   const handleFileChange = (item: File) => {
     setTitle(item.name)
@@ -42,6 +25,7 @@ function App () {
     const idItemClicked = item.id
     const idActive = (files.find(item => item.active))?.id
     setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
+    setEditing(!editing)
   }
 
   const handleAddNewFile = () => {
@@ -67,6 +51,25 @@ function App () {
       ],
     )
   }
+
+  const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
+    const newTitle = e.target.value
+    setTitle(newTitle)
+    const activeItemid = (files.find(item => item.active))?.id
+    setFiles(
+      files.map((file) => file.id === activeItemid ? { ...file, name: newTitle } : file),
+    )
+  }
+
+  const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const newContent = e.target.value
+    setContent(newContent)
+    const activeItemid = (files.find(item => item.active))?.id
+    setFiles(
+      files.map((file) => file.id === activeItemid ? { ...file, content: newContent } : file),
+    )
+  }
+
   return (
     <>
       <Sidebar
@@ -77,6 +80,7 @@ function App () {
       <Content
         title={title}
         content={content}
+        editing={editing}
         handleContentChange={handleContentChange}
         handleTitleChange={handleTitleChange}
       />

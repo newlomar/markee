@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react'
+import { ChangeEventHandler, useRef, useEffect } from 'react'
 import { activeFile } from 'ui/icons'
 import styled, { css } from 'styled-components/macro'
 import { marked } from 'marked'
@@ -24,9 +24,16 @@ interface Props {
   handleTitleChange: ChangeEventHandler;
   content: string;
   handleContentChange: ChangeEventHandler;
+  editing: Boolean;
 }
 
-function Content ({ title, handleTitleChange, content, handleContentChange }: Props) {
+function Content ({ title, handleTitleChange, content, handleContentChange, editing }: Props) {
+  const inputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (editing) {
+      inputRef.current!.focus()
+    }
+  }, [editing])
   return (
     <StyledSection>
       <StyledHeader>
@@ -35,6 +42,7 @@ function Content ({ title, handleTitleChange, content, handleContentChange }: Pr
           autoFocus
           value={title}
           onChange={handleTitleChange}
+          ref={inputRef}
         />
       </StyledHeader>
       <Main>
