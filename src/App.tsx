@@ -53,8 +53,8 @@ function App () {
 
             return file
           }))
-        }, 500)
-      }, 500)
+        }, 300)
+      }, 300)
     }
 
     updateStatus()
