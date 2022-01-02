@@ -21,6 +21,7 @@ function App () {
   console.log('infinite loop check')
 
   const handleFileChange = (item: File) => {
+    inputRef.current?.focus()
     setTitle(item.name)
     setContent(item.content)
     const idItemClicked = item.id
