@@ -1,15 +1,16 @@
 import styled, { css, keyframes } from 'styled-components/macro'
 import * as icon from 'ui/icons'
 import { File } from 'resources/files/types'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, MouseEvent } from 'react'
 
 interface Props {
   handleAddNewFile: MouseEventHandler;
   files: File[];
-  handleFileChange: Function;
+  onSelectFile: (item: File) => (e: MouseEvent) => void;
+  handleRemoveFile: (item: File) => void;
 }
 
-function Sidebar ({ handleAddNewFile, files, handleFileChange }: Props) {
+function Sidebar ({ handleAddNewFile, files, onSelectFile, handleRemoveFile }: Props) {
   return (
     <>
       <Aside>
@@ -31,12 +32,19 @@ function Sidebar ({ handleAddNewFile, files, handleFileChange }: Props) {
               files.map((item) => {
                 return (
                   <ListItem key={item.id}>
-                    <Link href='#' onClick={() => handleFileChange(item)}>
+                    <Link
+                      href={`/file/${item.id}`}
+                      onClick={onSelectFile(item)}
+                    >
                       <LinkImage active={item.active} />
                       <LinkText>{item.name}</LinkText>
                     </Link>
                     <StatusButton>
-                      <ButtonImage active={item.active} status={item.status} />
+                      <ButtonImage
+                        active={item.active}
+                        status={item.status}
+                        onClick={() => handleRemoveFile(item)}
+                      />
                     </StatusButton>
                   </ListItem>
                 )
@@ -198,13 +206,7 @@ const StatusButton = styled.button`${({ theme }) => css`
   cursor: pointer;
   font-size: 1.5rem;
   color: ${theme.colors.white};
-  padding: 0rem 1rem;
-
-  &:hover {
-    opacity: 1;
-    background-color: ${theme.colors.black};
-    border-radius: 100px;
-  };
+  padding: 1rem;
 `}`
 
 const rotate = keyframes`

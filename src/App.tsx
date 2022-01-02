@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, useRef, useEffect } from 'react'
+import { ChangeEvent, useState, useRef, useEffect, MouseEvent } from 'react'
 import { Sidebar } from 'sidebar'
 import { Content } from 'content'
 import { File } from 'resources/files/types'
@@ -15,7 +15,6 @@ function App () {
     },
   ])
   const [title, setTitle] = useState('Sem título')
-  const [isEditing, setIsEditing] = useState(false)
   const [content, setContent] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -62,14 +61,14 @@ function App () {
 
     return () => clearTimeout(timer)
   }, [files])
-  console.log('check editing: ', isEditing)
 
-  const handleFileChange = (item: File) => {
+  const handleSelectFile = (item: File) => (e: MouseEvent) => {
+    e.preventDefault()
+
     inputRef.current?.focus()
     setTitle(item.name)
     setContent(item.content)
     const idItemClicked = item.id
-    console.log(idItemClicked)
     const idActive = (files.find(item => item.active))?.id
     setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
   }
@@ -106,7 +105,6 @@ function App () {
     setFiles(
       files.map((file) => file.id === activeItemid ? { ...file, name: newTitle, status: 'editing' } : file),
     )
-    setIsEditing(true)
   }
 
   const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -118,12 +116,19 @@ function App () {
     )
   }
 
+  const handleRemoveFile = (item: File) => {
+    if (!item.active) {
+      setFiles(files.filter(file => file.id !== item.id))
+    }
+  }
+
   return (
     <>
       <Sidebar
         files={files}
         handleAddNewFile={handleAddNewFile}
-        handleFileChange={handleFileChange}
+        onSelectFile={handleSelectFile}
+        handleRemoveFile={handleRemoveFile}
       />
       <Content
         title={title}
