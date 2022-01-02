@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useState, useRef } from 'react'
 import { Sidebar } from 'sidebar'
 import { Content } from 'content'
 import { File } from 'resources/files/types'
@@ -16,7 +16,8 @@ function App () {
   ])
   const [title, setTitle] = useState('Sem título')
   const [content, setContent] = useState('')
-  const [editing, setEditing] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
+
   console.log('infinite loop check')
 
   const handleFileChange = (item: File) => {
@@ -25,10 +26,10 @@ function App () {
     const idItemClicked = item.id
     const idActive = (files.find(item => item.active))?.id
     setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
-    setEditing(!editing)
   }
 
   const handleAddNewFile = () => {
+    inputRef.current?.focus()
     const obj:File = {
       id: v4(),
       name: 'Sem título',
@@ -80,7 +81,7 @@ function App () {
       <Content
         title={title}
         content={content}
-        editing={editing}
+        inputRef={inputRef}
         handleContentChange={handleContentChange}
         handleTitleChange={handleTitleChange}
       />
