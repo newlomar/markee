@@ -4,15 +4,7 @@ import { v4 } from 'uuid'
 import localforage from 'localforage'
 
 export function useFiles () {
-  const [files, setFiles] = useState<File[]>([
-    {
-      id: v4(),
-      name: 'Sem título',
-      content: '',
-      active: true,
-      status: 'saved',
-    },
-  ])
+  const [files, setFiles] = useState<File[]>([])
   const [title, setTitle] = useState('Sem título')
   const [content, setContent] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
@@ -63,31 +55,31 @@ export function useFiles () {
 
   useEffect(() => {
     async function storage () {
-      type obj = {
-        id?: string;
-        name?: string;
-      }
-      await localforage.setItem('files', [
-        {
-          id: '1',
-          name: '2',
-        },
-        {
-          id: '2',
-          name: '3',
-        },
-        {
-          id: '4',
-          name: '5',
-        },
-        {
-          id: '6',
-          name: '7',
-        },
+      const localFiles: File[] | null = await localforage.getItem('files')
 
-      ])
-      const b: obj[] | null = await localforage.getItem('files')
-      console.log(b!.length)
+      if (localFiles) {
+        setFiles(localFiles)
+      } else {
+        await localforage.setItem('files', [
+          {
+            id: v4(),
+            name: 'Sem título',
+            content: '',
+            active: true,
+            status: 'saved',
+          },
+        ])
+
+        setFiles([
+          {
+            id: v4(),
+            name: 'Sem título',
+            content: '',
+            active: true,
+            status: 'saved',
+          },
+        ])
+      }
     }
 
     storage()
