@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, useRef, useEffect, MouseEvent } from 'react'
 import { File } from 'resources/files/types'
 import { v4 } from 'uuid'
+import localforage from 'localforage'
 
 export function useFiles () {
   const [files, setFiles] = useState<File[]>([
@@ -59,6 +60,38 @@ export function useFiles () {
 
     return () => clearTimeout(timer)
   }, [files])
+
+  useEffect(() => {
+    async function storage () {
+      type obj = {
+        id?: string;
+        name?: string;
+      }
+      await localforage.setItem('files', [
+        {
+          id: '1',
+          name: '2',
+        },
+        {
+          id: '2',
+          name: '3',
+        },
+        {
+          id: '4',
+          name: '5',
+        },
+        {
+          id: '6',
+          name: '7',
+        },
+
+      ])
+      const b: obj[] | null = await localforage.getItem('files')
+      console.log(b!.length)
+    }
+
+    storage()
+  }, [])
 
   const handleSelectFile = (item: File) => (e: MouseEvent) => {
     e.preventDefault()
