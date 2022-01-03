@@ -85,6 +85,10 @@ export function useFiles () {
     storage()
   }, [])
 
+  useEffect(() => {
+    localforage.setItem('files', files)
+  }, [files])
+
   const handleSelectFile = (item: File) => (e: MouseEvent) => {
     e.preventDefault()
 
