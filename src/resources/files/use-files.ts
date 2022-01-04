@@ -59,10 +59,21 @@ export function useFiles () {
 
       if (localFiles) {
         setFiles(localFiles)
+
+        const activeFile = localFiles.find(item => item.active)
+        const activeItemid = activeFile?.id
+        const activeTitle = activeFile?.name
+        const activeContent = activeFile?.content
+
+        setTitle(activeTitle!)
+        setContent(activeContent!)
+
+        window.history.pushState(null, '', `${activeItemid}`)
       } else {
+        const id = v4()
         await localforage.setItem('files', [
           {
-            id: v4(),
+            id: id,
             name: 'Sem título',
             content: '',
             active: true,
@@ -72,13 +83,15 @@ export function useFiles () {
 
         setFiles([
           {
-            id: v4(),
+            id: id,
             name: 'Sem título',
             content: '',
             active: true,
             status: 'saved',
           },
         ])
+
+        window.history.pushState(null, '', `${id}`)
       }
     }
 
@@ -98,12 +111,14 @@ export function useFiles () {
     const idItemClicked = item.id
     const idActive = (files.find(item => item.active))?.id
     setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
+    window.history.pushState(null, '', `${idItemClicked}`)
   }
 
   const handleAddNewFile = () => {
     inputRef.current?.focus()
+    const id = v4()
     const obj:File = {
-      id: v4(),
+      id: id,
       name: 'Sem título',
       content: '',
       active: true,
@@ -123,6 +138,7 @@ export function useFiles () {
         obj,
       ],
     )
+    window.history.pushState(null, '', `${id}`)
   }
 
   const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
