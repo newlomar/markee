@@ -198,6 +198,8 @@ const LinkImage = styled.img<LinkImageProps>`${({ active }) => css`
 
 const LinkText = styled.span`
   margin-left: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 const StatusButton = styled.button`${({ theme }) => css`
