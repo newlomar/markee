@@ -11,7 +11,6 @@ interface Props {
 }
 
 function Sidebar ({ handleAddNewFile, files, onSelectFile, handleRemoveFile }: Props) {
-  console.log(files)
   return (
     <>
       <Aside>

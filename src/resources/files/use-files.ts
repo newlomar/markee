@@ -9,8 +9,6 @@ export function useFiles () {
   const [content, setContent] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  console.log('infinite loop check')
-
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
 
