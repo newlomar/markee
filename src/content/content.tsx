@@ -86,6 +86,11 @@ const Main = styled.main`
   height: 90vh;
   padding: 4rem 0;
   overflow-y: hidden;
+
+  @media(max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const TextSection = styled.textarea`${({ theme }) => css`
@@ -103,12 +108,26 @@ const TextSection = styled.textarea`${({ theme }) => css`
   resize: none;
   cursor: auto;
   word-break: break-all;
+
   &:focus {
     outline: none;
   }
 
   &::-webkit-scrollbar {
     width: 0rem;
+  }
+
+  @media(max-width: 800px) {
+    max-width: 100%;
+    border: none;
+    border-bottom: 2px solid ${theme.colors.gray};
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-scrollbar {
+      width: 1rem;
+    }
   }
 `}`
 
