@@ -93,6 +93,11 @@ const Aside = styled.aside`${({ theme }) => css`
     background-color: #a8bbbf;
   }
 
+  @media(max-width: 800px) {
+    width: 100%;
+    height: auto;
+  }
+
 `}`
 
 const Title = styled.h1`${({ theme }) => css`
@@ -161,6 +166,7 @@ const List = styled.ul`
   list-style-type: none;
   color: white;
   padding-left: 0rem;
+
 `
 
 const ListItem = styled.li`${({ theme }) => css`

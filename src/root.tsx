@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`${({ theme }) => css`
 
   #app {
     display: flex;
+
+    @media(max-width: 800px) {
+      flex-direction: column;
+    }
   }
 `}`
 
