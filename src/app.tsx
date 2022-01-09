@@ -2,7 +2,6 @@ import { Sidebar } from 'sidebar'
 import { Content } from 'content'
 import { useFiles } from 'resources/files/use-files'
 import { Navbar } from 'navbar'
-import styled from 'styled-components'
 
 function App () {
   const {
@@ -20,31 +19,21 @@ function App () {
   return (
     <>
       <Navbar />
-      <StyledSection>
-        <Sidebar
-          files={files}
-          handleAddNewFile={handleAddNewFile}
-          onSelectFile={handleSelectFile}
-          handleRemoveFile={handleRemoveFile}
-        />
-        <Content
-          title={title}
-          content={content}
-          inputRef={inputRef}
-          handleContentChange={handleContentChange}
-          handleTitleChange={handleTitleChange}
-        />
-      </StyledSection>
+      <Sidebar
+        files={files}
+        handleAddNewFile={handleAddNewFile}
+        onSelectFile={handleSelectFile}
+        handleRemoveFile={handleRemoveFile}
+      />
+      <Content
+        title={title}
+        content={content}
+        inputRef={inputRef}
+        handleContentChange={handleContentChange}
+        handleTitleChange={handleTitleChange}
+      />
     </>
   )
 }
-
-const StyledSection = styled.section`
-  display: flex;
-
-  @media(max-width: 800px) {
-    flex-direction: column;
-  }
-`
 
 export { App }

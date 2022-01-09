@@ -7,6 +7,7 @@ declare module 'styled-components' {
       gray: string
       primary: string
       primaryDark: string
+      blueNav: string
     }
   }
 }

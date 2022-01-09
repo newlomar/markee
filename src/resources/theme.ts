@@ -8,5 +8,6 @@ export const theme: DefaultTheme = {
     white: '#FAFAFA',
     primary: '#1FC8E1',
     primaryDark: '#18A1B5',
+    blueNav: '#E5E5FF',
   },
 }
