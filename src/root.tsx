@@ -1,6 +1,7 @@
 import { ThemeProvider, createGlobalStyle, css } from 'styled-components'
 import { App } from './app'
 import { theme } from 'resources/theme'
+import { BrowserRouter } from 'react-router-dom'
 
 import 'normalize.css'
 
@@ -8,7 +9,9 @@ function Root () {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   )
 }
