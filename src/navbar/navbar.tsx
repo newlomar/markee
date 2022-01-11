@@ -14,7 +14,7 @@ function Navbar () {
 }
 
 const StyledNav = styled.nav`${({ theme }) => css`
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   background: ${theme.colors.blueNav};
