@@ -61,6 +61,27 @@ function App () {
           </>
       }
       />
+      <Route
+        path='/file/:id'
+        element={
+          <>
+            <Navbar />
+            <Sidebar
+              files={files}
+              handleAddNewFile={handleAddNewFile}
+              onSelectFile={handleSelectFile}
+              handleRemoveFile={handleRemoveFile}
+            />
+            <Content
+              title={title}
+              content={content}
+              inputRef={inputRef}
+              handleContentChange={handleContentChange}
+              handleTitleChange={handleTitleChange}
+            />
+          </>
+      }
+      />
       <Route path='/home' element={<Home />} />
     </Routes>
   )
