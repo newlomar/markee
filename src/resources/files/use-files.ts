@@ -89,7 +89,7 @@ export function useFiles () {
           },
         ])
 
-        window.history.pushState(null, '', `${id}`)
+        window.history.pushState(null, '', `/file/${id}`)
       }
     }
 
@@ -109,7 +109,7 @@ export function useFiles () {
     const idItemClicked = item.id
     const idActive = (files.find(item => item.active))?.id
     setFiles(files.map((item) => idItemClicked === idActive ? item : item.id === idActive ? { ...item, active: false } : item.id === idItemClicked ? { ...item, active: true } : item))
-    window.history.pushState(null, '', `${idItemClicked}`)
+    window.history.pushState(null, '', `/file/${idItemClicked}`)
   }
 
   const handleAddNewFile = () => {
@@ -136,7 +136,7 @@ export function useFiles () {
         obj,
       ],
     )
-    window.history.pushState(null, '', `${id}`)
+    window.history.pushState(null, '', `/file/${id}`)
   }
 
   const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
