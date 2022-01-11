@@ -66,7 +66,7 @@ export function useFiles () {
         setTitle(activeTitle!)
         setContent(activeContent!)
 
-        window.history.pushState(null, '', `${activeItemid}`)
+        window.history.pushState(null, '', `/file/${activeItemid}`)
       } else {
         const id = v4()
         await localforage.setItem('files', [
