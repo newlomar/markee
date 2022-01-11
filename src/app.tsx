@@ -20,7 +20,7 @@ function App () {
   return (
     <Routes>
       <Route
-        path='/'
+        path='/files'
         element={
           <>
             <Navbar />
@@ -40,7 +40,7 @@ function App () {
           </>
       }
       />
-      <Route path='/home' element={<Home />} />
+      <Route path='/' element={<Home />} />
     </Routes>
   )
 }

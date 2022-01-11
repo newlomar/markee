@@ -37,6 +37,10 @@ const GlobalStyle = createGlobalStyle`${({ theme }) => css`
       flex-direction: column;
     }
   }
+
+  a,a:visited {
+    text-decoration: none;
+  }
 `}`
 
 export { Root }

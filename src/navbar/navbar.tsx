@@ -4,10 +4,10 @@ function Navbar () {
   return (
     <StyledNav>
       <StyledList>
-        <ListItem first>Inicio</ListItem>
-        <ListItem>Arquivos</ListItem>
-        <ListItem>Sobre</ListItem>
-        <ListItem>Contato</ListItem>
+        <ListLink href='/home' first>Inicio</ListLink>
+        <ListLink href='/files'>Arquivos</ListLink>
+        <ListLink href='/'>Sobre</ListLink>
+        <ListLink href='/'>Contato</ListLink>
       </StyledList>
     </StyledNav>
   )
@@ -35,7 +35,7 @@ type ListItemProp = {
   first?: boolean;
 }
 
-const ListItem = styled.li<ListItemProp>`${({ theme, first }) => css`
+const ListLink = styled.a<ListItemProp>`${({ theme, first }) => css`
   font-size: 1.5rem;
   font-weight: bold;
   color: orange;
@@ -47,6 +47,9 @@ const ListItem = styled.li<ListItemProp>`${({ theme, first }) => css`
   &:hover {
     background: ${theme.colors.black};
     cursor: pointer;
+  }
+  &:visited {
+    text-decoration: none;
   }
 `}`
 
