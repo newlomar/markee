@@ -10,4 +10,6 @@ Com isso, uma das utilizações desse App é ajudar os desenvolvedores (inclusiv
 
 Inclusive, esse README que você está lendo foi criado utilizando a ferramenta.
 
-Acesse aqui: https://markee-md.netlify.app !!!
+Acesse aqui: https://markee-md.netlify.app !!!!!!!!!!!!!!
+
+Feedbacks são sempre bem vindos
